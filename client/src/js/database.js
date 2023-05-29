@@ -25,7 +25,7 @@ export const putDb = async (content) => {
   // Open up the desired object store.
   const store = tx.objectStore('contact');
 
-  // Use the .getAll() method to get all data in the database.
+  // use the .update() method to update db
   const request = store.update();
 
   // Get confirmation of the request.
