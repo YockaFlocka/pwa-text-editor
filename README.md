@@ -1,27 +1,10 @@
-# Unit 19 PWA Homework: Text Editor (Modified Edition)
-
-## Before anything else
-
-You can use a clone of this repo for your homework submission, but do NOT include this README file in your submission! .The Assets folder in the repo root is for this README file only; you don't to submit it.
+# PWA: Text Editor
 
 ## Instructions
-
-The web application from which the PWA will be created has already been built for you (and was intended to be). The main goal of this homework assignment is to properly set up and configure the web app so it can function as a PWA.
 
 Make sure you post your final work to Heroku. You can use the [Heroku Deployment Guide on The Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/heroku/heroku-deployment-guide) if needed. There is no database component. 
 
 Don't forget to make sure your root package.json file is set up for Heroku.
-
-You will be modifying the files listed below. These are the same files that would need to be modified in the original homework, I've just tried to make things a bit easier to understand. None of the server files need to be touched.
-
-In each file you will see TODO items in the comments. I've tried to give some added texture to each item to help as well.
-
-## Files To Edit
-
-- client/src-sw.js
-- client/webpack.config.js
-- client/src/database.js
-- client/src/install.js
 
 ## Things To Note
 
