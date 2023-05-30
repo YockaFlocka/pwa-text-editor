@@ -14,58 +14,75 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+
     plugins: [
-      // Webpack plugin that generates our html file and injects our bundles. 
-      new HtmlWebpackPlugin({
-        template: './index.html',
-        title: 'Contact Cards'
-      }),
-     
-      // Injects our custom service worker
-      new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
+
+    /*
+      TODO:
+
+      We need to configure some plugins for Wepack to use. They 
+      have already been required in above.
+
+      Note that the plugins property on line 18 is an array. The 
+      standard way to config a plugin is to instantiate one plugin
+      for each item in this array. So if we have three plugins to 
+      configure, the plugins array should have three sets of objects 
+      being instantiated.
+
+      Instantiating a plugin looks like this:
+
+      new PLUGIN_NAME_HERE({
+        // object keys and values go here
       }),
 
-      // Creates a manifest.json file.
-      new WebpackPwaManifest({
-        fingerprints: false,
-        inject: true,
-        name: 'Contact Cards',
-        short_name: 'Contact',
-        description: 'Never forget your contacts!',
-        background_color: '#225ca3',
-        theme_color: '#225ca3',
-        start_url: './',
-        publicPath: './',
-        icons: [
-          {
-            src: path.resolve('src/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('assets', 'icons'),
-          },
-        ],
-      }),
+      So, below, we will be configuring HtmlWebpackPlugin, InjectManifest, 
+      and WebpackPwaManifest.
+
+      For HtmlWebpackPlugin, we want to specify the template as './index.html' 
+      and the title as 'J.A.T.E'
+
+      For InjectManifest plugin, the swSrc should be './src-sw.js' and the 
+      swDest should be 'src-sw.js'
+
+      For WebpackPwaManifest, we'll need the following values set in the config 
+      object:
+
+      fingerprints should be false
+      inject should be true
+      name should be 'Just Another Text Editor'
+      short_name should be 'J.A.T.E'
+      description can be anything you like. This is an app that creates a text editor, so write something suitable.
+      background_color and theme_color should be '#225ca3'
+      start_url and publicPath should be  '/'
+      icons should be:
+          [
+            {
+              src: path.resolve('src/images/logo.png'),
+              sizes: [96, 128, 192, 256, 384, 512],
+              destination: path.join('assets', 'icons'),
+            },
+          ]
+
+      When all three plugins are configured this work is done.
+    */
+
+
     ],
 
     module: {
       rules: [
-        {
-          test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
-        },
-        {
-          test: /\.m?js$/,
-          exclude: /node_modules/,
-          // We use babel-loader in order to use ES6.
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
-            },
-          },
-        },
+
+        /*
+          TODO: In this array, we need to configure the rules 
+          for when Webpack should "bundle-ize" our files. Each rule 
+          is an object. We will be setting up two rules. 
+          
+          You will find both rules in the solution for the mini 
+          project. 
+
+          When you copy and paste them below, you'll be done here.
+        */
+
       ],
     },
   };
